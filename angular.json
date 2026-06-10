@@ -33,7 +33,8 @@
             ],
             "styles": [
               "src/styles.scss",
-              "src/my-custom-style.scss"
+              "src/my-custom-style.scss",
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": []
           },
