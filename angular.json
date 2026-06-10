@@ -28,10 +28,12 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/my-custom-assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/my-custom-style.scss"
             ],
             "scripts": []
           },
