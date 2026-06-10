@@ -1,0 +1,8 @@
+<div class="card text-white text-center" [ngClass]="infoInput.styleClass || 'bg-primary'">
+  <div class="card-body">
+    <h5 class="card-title">{{infoInput.title}}</h5>
+    <p class="card-text">
+      {{infoInput.amount | currency:'EUR':'symbol'}}
+    </p>
+  </div>
+</div>
