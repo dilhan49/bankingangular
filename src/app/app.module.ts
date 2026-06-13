@@ -18,7 +18,8 @@ import { MainPageComponent } from './pages/main-page/main-page.component';
 import { MainAdminPageComponent } from './pages/main-admin-page/main-admin-page.component';
 import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component';
 import { FirstService } from './services/first-service/first.service';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpInterceptorService } from './services/http-interceptor/http-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -44,8 +45,13 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     HttpClientModule
   ],
   providers: [
-    FirstService,
-    HttpClient
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpInterceptorService,
+      multi: true
+    },
+    HttpClient,
+
   ],
   bootstrap: [AppComponent]
 })
