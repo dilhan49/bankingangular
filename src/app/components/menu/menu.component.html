@@ -1,7 +1,7 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="card navbar navbar-expand-lg navbar-light bg-light mb-2 mt-2">
   <div class="container-fluid">
 
-    <a class="navbar-brand" href="#">MyBank</a>
+    <a class="navbar-brand" [routerLink]="'/' + role">MyBank</a>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
@@ -10,19 +10,32 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
 
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Dashboard</a>
+        <li class="nav-item" >
+          <a class="nav-link active" aria-current="page" [routerLink]="'/'+role">Dashboard</a>
         </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="#">My transactions</a>
+        <li class="nav-item" *ngIf="!isAdmin">
+          <a class="nav-link" [routerLink]="'/user/my-transactions'">My transactions</a>
         </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="#">My contact list</a>
+        <li class="nav-item" *ngIf="!isAdmin">
+          <a class="nav-link" [routerLink]="'/user/my-contact-list'">My contact list</a>
+        </li>
+
+        <li class="nav-item" *ngIf="isAdmin">
+          <a class="nav-link" [routerLink]="'/admin/customers'">Customers</a>
         </li>
 
       </ul>
+    </div>
+    <div class="d-flex align-items-center">
+      <a class="btn btn-success me-3" type="submit" [routerLink]="'/user/new-transaction'" *ngIf="!isAdmin">
+        <em class="fas fa-plus"></em> New transaction
+      </a>
+      <a [routerLink]="'/' + role +'/profile'">
+        <em class="fas fa-user"></em> John Doe
+      </a>
+
     </div>
 
   </div>

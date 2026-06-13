@@ -14,6 +14,9 @@ import { NewTransactionComponent } from './pages/new-transaction/new-transaction
 import { NewContactComponent } from './pages/new-contact/new-contact.component';
 import { MyProfileComponent } from './pages/my-profile/my-profile.component';
 import { ManageUsersComponent } from './admin/manage-users/manage-users.component';
+import { MainPageComponent } from './pages/main-page/main-page.component';
+import { MainAdminPageComponent } from './pages/main-admin-page/main-admin-page.component';
+import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { ManageUsersComponent } from './admin/manage-users/manage-users.componen
     NewTransactionComponent,
     NewContactComponent,
     MyProfileComponent,
-    ManageUsersComponent
+    ManageUsersComponent,
+    MainPageComponent,
+    MainAdminPageComponent,
+    AdminDashboardComponent
   ],
   imports: [
     BrowserModule,
