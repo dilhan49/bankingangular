@@ -6,7 +6,8 @@
     "start": "SET NODE_OPTIONS=--openssl-legacy-provider && ng serve",
     "build": "SET NODE_OPTIONS=--openssl-legacy-provider && ng build",
     "watch": "SET NODE_OPTIONS=--openssl-legacy-provider && ng build --watch --configuration development",
-    "test": "SET NODE_OPTIONS=--openssl-legacy-provider && ng test"
+    "test": "SET NODE_OPTIONS=--openssl-legacy-provider && ng test",
+    "api-gen": "ng-openapi-gen --input ./src/app/swagger/swagger.json --output src/app/services"
   },
   "private": true,
   "dependencies": {
