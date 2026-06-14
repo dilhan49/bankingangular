@@ -19,7 +19,9 @@ import { MainAdminPageComponent } from './pages/main-admin-page/main-admin-page.
 import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component';
 import { FirstService } from './services/first-service/first.service';
 import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 import { HttpInterceptorService } from './services/http-interceptor/http-interceptor.service';
+import { ConfirmRegisterComponent } from './pages/confirm-register/confirm-register.component';
 
 @NgModule({
   declarations: [
@@ -37,12 +39,14 @@ import { HttpInterceptorService } from './services/http-interceptor/http-interce
     ManageUsersComponent,
     MainPageComponent,
     MainAdminPageComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    ConfirmRegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     {

@@ -12,6 +12,7 @@ import { MyProfileComponent } from './pages/my-profile/my-profile.component';
 import { MainAdminPageComponent } from './pages/main-admin-page/main-admin-page.component';
 import { ManageUsersComponent } from './admin/manage-users/manage-users.component';
 import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component';
+import { ConfirmRegisterComponent } from './pages/confirm-register/confirm-register.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent
+  },
+  {
+    path: 'confirm-register',
+    component: ConfirmRegisterComponent
   },
   {
     path: 'user',

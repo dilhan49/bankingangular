@@ -14,16 +14,11 @@ export class UserDashboardComponent implements OnInit {
   accountInfoList: Array<LightInfoInput>=[];
 
   constructor(
-    private transactionService: TransactionsService
   ) { }
 
   ngOnInit(): void {
     this.initializeAccountInfo();
-    this.transactionService.findAll1().subscribe({
-      next: (data) => {
-        console.log(data);
-      }
-    });
+
   }
 
   private initializeAccountInfo(){
