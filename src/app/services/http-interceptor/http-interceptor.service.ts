@@ -9,7 +9,7 @@ export class HttpInterceptorService implements HttpInterceptor{
 
   constructor() { }
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    if(!req.url.includes('/authenticate') || !req.url.includes('/register')) {
+    if(!req.url.includes('/authenticate') && !req.url.includes('/register')) {
       const token = localStorage.getItem('token');
       if(token){
         //assigner le token;
