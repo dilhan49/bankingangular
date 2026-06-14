@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthenticationRequest } from 'src/app/services/models';
+import { AuthenticationService } from 'src/app/services/services';
 
 @Component({
   selector: 'app-login',
@@ -8,15 +10,15 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  urlParam = 'Not yet defined';
-  queryParams = 'Not yet defined';
+  authenticationRequest: AuthenticationRequest={};
+  errorMessages: Array<string>=[];
+
 
   constructor(
     private router: Router,
-    private activatedRoute: ActivatedRoute
+    private authServ: AuthenticationService
   ) {
-    this.urlParam = this.activatedRoute.snapshot.params['someText'] ?? 'Not yet defined';
-    this.queryParams = this.activatedRoute.snapshot.queryParams['x'] ?? 'Not yet defined';
+
   }
 
   ngOnInit(): void {
@@ -24,6 +26,18 @@ export class LoginComponent implements OnInit {
 
   async register(){
     await this.router.navigate(['/register']);
+  }
+  login(){
+    this.errorMessages = [];
+    this.authServ.authenticate({body: this.authenticationRequest}).subscribe({
+      next: (data)=>{
+        localStorage.setItem('token', data.token as string);
+      },
+      error: (err)=>{
+        console.log(err);
+        this.errorMessages.push(err.error.errorMessage);
+      }
+    })
   }
 
 }
